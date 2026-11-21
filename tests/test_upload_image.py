@@ -12,4 +12,10 @@ with open("fish.jpg", "rb") as image:
         }
     )
 
-print(response.json())
+print("Status:", response.status_code)
+print("Response:", response.text)
+
+try:
+    print("JSON:", response.json())
+except requests.exceptions.JSONDecodeError:
+    print("Response is not valid JSON")
